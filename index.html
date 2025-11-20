@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Rothschild & The Balfour Declaration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px; /* Adjusted height for chart only */
+        }
+        /* Custom Legend Styles */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #374151;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 280px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #005587;
+            border: 3px solid #64CFFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-100" style="background-color: #F0F8FF;">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2" style="color: #003F63;">Walter Rothschild & The Balfour Declaration</h1>
+            <p class="text-lg md:text-xl" style="color: #005587;">A Historical Analysis of a Key Moment</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="md:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-3" style="color: #003F63;">Understanding the Context</h2>
+                <p class="text-gray-700">
+                    The Balfour Declaration of 1917 is a pivotal document in modern history. It was a public statement by the British government announcing support for the establishment of a "national home for the Jewish people" in Palestine. The declaration was contained in a letter addressed to a single individual: Lionel Walter Rothschild, 2nd Baron Rothschild. This infographic explores who he was, his role in the Zionist movement, and the facts surrounding this historic event.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4" style="color: #003F63;">Who Was Walter Rothschild?</h2>
+                <p class="text-gray-700 mb-4">He was far more than just a banker. While a member of the famous Rothschild banking family, his primary passions lay elsewhere.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">🔬</span>
+                        <span class="text-gray-800"><strong style="color: #005587;">Zoologist:</strong> His main career. He built a massive private zoological museum in Tring, which later became part of Britain's Natural History Museum.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">🏛️</span>
+                        <span class="text-gray-800"><strong style="color: #005587;">Politician:</strong> He served as a Member of Parliament for Aylesbury from 1899 to 1910.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-2xl mr-3">✡️</span>
+                        <span class="text-gray-800"><strong style="color: #005587;">Community Leader:</strong> As Lord Rothschild, he was considered the lay head of the Jewish community in Britain.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4" style="color: #003F63;">Timeline of Key Events</h2>
+                <p class="text-gray-700 mb-5">Walter Rothschild's involvement came at a key moment, but the Zionist movement was already well-established.</p>
+                <div class="relative pl-8 border-l-2" style="border-color: #005587;">
+                    <div class="mb-6 relative timeline-item">
+                        <h3 class="font-bold text-lg" style="color: #005587;">1897: First Zionist Congress</h3>
+                        <p class="text-sm text-gray-600">The Zionist movement is formally established by Theodor Herzl in Basel, Switzerland, decades before the declaration.</p>
+                    </div>
+                    <div class="mb-6 relative timeline-item">
+                        <h3 class="font-bold text-lg" style="color: #005587;">c. 1914: Weizmann & Rothschild</h3>
+                        <p class="text-sm text-gray-600">Zionist leader Chaim Weizmann, a chemist, meets and befriends Walter Rothschild, gradually winning him over to the Zionist cause.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="font-bold text-lg" style="color: #005587;">Nov 2, 1917: Balfour Declaration</h3>
+                        <p class="text-sm text-gray-600">The British Foreign Secretary, Arthur Balfour, sends the letter of support to Lord Rothschild as the representative of the Jewish community.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col h-full">
+                <h2 class="text-2xl font-bold mb-4" style="color: #003F63;">Why Walter Rothschild?</h2>
+                <p class="text-gray-700 mb-4">The declaration was addressed to him for a combination of reasons.</p>
+                
+                <!-- Canvas Container -->
+                <div class="chart-container mb-4">
+                    <canvas id="whyWalterChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #005587;"></div>
+                        <span>Prominent British Jew</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0072B5;"></div>
+                        <span>Political Advocate (Lord)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #009BEE;"></div>
+                        <span>Zionist Supporter</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #64CFFF;"></div>
+                        <span>Family Influence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center" style="color: #003F63;">The Path to the Declaration</h2>
+                <p class="text-gray-700 mb-6 text-center max-w-3xl mx-auto">Walter Rothschild did not create Zionism, but he became a crucial advocate. His role was to use his influence to connect Zionist leaders with the British government, leveraging his status to gain a political hearing.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                    <div class="text-center p-4 rounded-lg" style="background-color: #E6F7FF; border: 2px solid #64CFFF;">
+                        <h3 class="font-bold text-lg" style="color: #005587;">Zionist Movement</h3>
+                        <p>(e.g., Chaim Weizmann)</p>
+                    </div>
+                    <div class="text-5xl font-bold" style="color: #0072B5;">→</div>
+                    <div class="text-center p-4 rounded-lg" style="background-color: #E6F7FF; border: 2px solid #64CFFF;">
+                        <h3 class="font-bold text-lg" style="color: #005587;">Walter Rothschild</h3>
+                        <p>(Advocate & Community Leader)</p>
+                    </div>
+                    <div class="text-5xl font-bold" style="color: #0072B5;">→</div>
+                    <div class="text-center p-4 rounded-lg" style="background-color: #E6F7FF; border: 2px solid #64CFFF;">
+                        <h3 class="font-bold text-lg" style="color: #005587;">British Government</h3>
+                        <p>(e.g., Arthur Balfour)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <h2 class="text-2xl font-bold mb-2 text-center" style="color: #003F63;">The "67 Words"</h2>
+                <p class="text-gray-700 mb-4 text-center">The core of the declaration was famously brief.</p>
+                <div class="text-7xl font-bold" style="color: #0072B5;">67</div>
+                <p class="text-2xl font-bold" style="color: #005587;">Key Words</p>
+            </div>
+
+            <div class="md:col-span-2 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4" style="color: #003F63;">The Declaration's Text</h2>
+                <p class="text-gray-700 mb-4">The letter from Arthur Balfour to Lord Rothschild began:</p>
+                <blockquote class="border-l-4 p-4 italic" style="border-color: #0072B5; background-color: #F0F8FF;">
+                    "His Majesty's Government view with favour the establishment in Palestine of a national home for the Jewish people, and will use their best endeavours to facilitate the achievement of this object, it being clearly understood that nothing shall be done which may prejudice the civil and religious rights of existing non-Jewish communities in Palestine, or the rights and political status enjoyed by Jews in any other country."
+                </blockquote>
+            </div>
+
+            <div class="md:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-6 text-center" style="color: #003F63;">Fact vs. Claim: Historical Context</h2>
+                <p class="text-gray-700 mb-6 text-center max-w-3xl mx-auto">Understanding this history requires separating the role of an <b>advocate</b> from that of a <b>creator</b>. The claim that "bankers created Zionism" is a common oversimplification and misconception.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-lg" style="background-color: #E6F7FF; border: 2px solid #64CFFF;">
+                        <h3 class="font-bold text-xl mb-3 text-center" style="color: #005587;">Historical Fact</h3>
+                        <ul class="space-y-3 list-disc list-inside text-gray-800">
+                            <li>Zionism was a political movement that began in the late 19th century, with diverse supporters and leaders like Theodor Herzl.</li>
+                            <li>Walter Rothschild was <b>not</b> an early Zionist. He was persuaded to support the cause by Chaim Weizmann around 1914.</li>
+                            <li>His role was one of a powerful <strong class="text-black">advocate and intermediary</strong>. He used his status to help the existing movement gain access to the British government.</li>
+                            <li>The Balfour Declaration was a <strong class="text-black">political decision</strong> by the British government, issued to him as a symbolic leader.</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background-color: #FFF0F0; border: 2px solid #FFB3B3;">
+                        <h3 class="font-bold text-xl mb-3 text-center" style="color: #D90429;">Common Misconception</h3>
+                        <ul class="space-y-3 list-disc list-inside text-gray-800">
+                            <li>The claim: "Zionism was <strong class="text-black">created by</strong> the Rothschilds/bankers."</li>
+                            <li>This narrative <strong class="text-black">conflates</strong> the role of a <b>supporter</b> with that of an <b>originator</b>.</li>
+                            <li>It <strong class="text-black">ignores</strong> the decades of political and cultural Zionism that existed long before Walter Rothschild's involvement.</li>
+                            <li>This simplifies a complex political movement into a conspiracy, which often draws on old antisemitic tropes about international bankers.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-3" style="color: #003F63;">Conclusion: A Complex Legacy</h2>
+                <p class="text-gray-700">
+                    Walter Rothschild was a critical figure in the history of the Balfour Declaration, but his role was that of a powerful and influential <strong class="text-black">supporter</strong>, not the movement's creator. He used his unique position as both a British Lord and a leader in the Jewish community to provide the Zionist movement with a crucial political victory. The historical record shows Zionism as a broad-based political movement that predated his involvement, whose leaders <b>sought</b> his help to achieve their goals. Understanding this distinction is key to accurately interpreting this complex chapter of history.
+                </p>
+            </div>
+
+            <!-- SOURCES SECTION -->
+            <div class="md:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4" style="color: #003F63;">Sources & Further Reading</h2>
+                <ul class="space-y-2 text-sm md:text-base">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-xl">📚</span>
+                        <span>
+                            <strong style="color: #005587;">The Rothschild Archive:</strong> 
+                            <a href="https://www.rothschildarchive.org/family/family_interests/walter_rothschild_and_the_balfour_declaration" target="_blank" class="underline hover:text-blue-700" style="color: #0072B5;">Walter Rothschild and the Balfour Declaration</a>. The primary historical record of the family's involvement.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-xl">🏛️</span>
+                        <span>
+                            <strong style="color: #005587;">The British Library:</strong> 
+                            <span class="italic">The Balfour Declaration (1917)</span>. Archives of the original manuscript and context on the British Mandate.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-xl">📖</span>
+                        <span>
+                            <strong style="color: #005587;">Encyclopedia Britannica:</strong> 
+                            <a href="https://www.britannica.com/event/Balfour-Declaration" target="_blank" class="underline hover:text-blue-700" style="color: #0072B5;">Balfour Declaration</a> & <a href="https://www.britannica.com/topic/Zionism" target="_blank" class="underline hover:text-blue-700" style="color: #0072B5;">Zionism</a>. Comprehensive overview of the movement's origins (Herzl, Pinsker) pre-dating Rothschild.
+                        </span>
+                    </li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500 italic">
+                    Note: This infographic synthesizes verified historical records to clarify the distinction between the <strong>originators</strong> of political Zionism and its <strong>financial/political supporters</strong>.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var ctx = document.getElementById('whyWalterChart').getContext('2d');
+            
+            var whyWalterChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Prominent British Jew',
+                        'Political Advocate (Lord)',
+                        'Zionist Supporter',
+                        'Family Influence (Prestige)'
+                    ],
+                    datasets: [{
+                        label: 'Reasons for Selection',
+                        data: [35, 25, 30, 10],
+                        backgroundColor: [
+                            '#005587',
+                            '#0072B5',
+                            '#009BEE',
+                            '#64CFFF'
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            display: false // Hiding Chart.js default legend to prevent overlapping
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    return tooltipItems[0].label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
